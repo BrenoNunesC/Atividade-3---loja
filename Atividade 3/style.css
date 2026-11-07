@@ -1,0 +1,288 @@
+/* 
+   Atividade 3 - Loja Online
+   Alunos: Breno da Costa Nunes e Nilson Grechi Knupp
+*/
+/* Configurações gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body {
+    background-color: #f4f6f9;
+    color: #333;
+}
+/* Cabeçalho */
+header {
+    background-color: #172b4d;
+    color: white;
+    padding: 20px 8%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+header h1 {
+    font-size: 28px;
+}
+nav {
+    display: flex;
+    gap: 25px;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+nav a:hover {
+    color: #78b7ff;
+}
+/* Banner */
+.banner {
+    background-color: #dceaff;
+    padding: 70px 20px;
+    text-align: center;
+}
+.banner h2 {
+    font-size: 36px;
+    color: #172b4d;
+    margin-bottom: 15px;
+}
+.banner p {
+    font-size: 18px;
+    color: #444;
+    margin-bottom: 25px;
+}
+.banner a {
+    display: inline-block;
+    background-color: #2463a6;
+    color: white;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+.banner a:hover {
+    background-color: #174778;
+    transform: translateY(-2px);
+}
+/* Seção de produtos */
+.produtos {
+    padding: 50px 8%;
+}
+.produtos h2 {
+    text-align: center;
+    font-size: 30px;
+    color: #172b4d;
+    margin-bottom: 35px;
+}
+/* Organização dos cards */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+/* Cards individuais */
+.card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    transition: 0.3s;
+    position: relative;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    border-color: #a9c9ed;
+}
+.card h3 {
+    color: #172b4d;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+/* Imagens dos produtos */
+.card img {
+    width: 100%;
+    max-width: 250px;
+    height: 180px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+/* Descrição dos produtos */
+.card p {
+    color: #555;
+    font-size: 15px;
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+/* Preços */
+.card p b {
+    color: #1d7a46;
+    font-size: 20px;
+}
+/* Botões */
+.card button {
+    background-color: #2463a6;
+    color: white;
+    border: none;
+    padding: 11px 25px;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: auto;
+}
+.card button:hover {
+    background-color: #174778;
+}
+/* Contato */
+.contato {
+    background-color: #e8edf4;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.contato h2 {
+    color: #172b4d;
+    font-size: 30px;
+    margin-bottom: 25px;
+}
+.contato form {
+    background-color: white;
+    max-width: 500px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+.contato label {
+    display: inline-block;
+    margin-bottom: 7px;
+    font-weight: bold;
+    color: #333;
+}
+.contato input,
+.contato textarea {
+    width: 100%;
+    padding: 11px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+    outline: none;
+}
+.contato input:focus,
+.contato textarea:focus {
+    border-color: #2463a6;
+}
+.contato textarea {
+    resize: vertical;
+}
+.contato button {
+    width: 100%;
+    background-color: #2463a6;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.contato button:hover {
+    background-color: #174778;
+}
+/* Rodapé */
+footer {
+    background-color: #172b4d;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+}
+/* Animação simples */
+@keyframes entrada {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.banner {
+    animation: entrada 0.8s ease;
+}
+.card {
+    animation: entrada 0.7s ease;
+}
+/* Responsividade para tablets */
+@media (max-width: 900px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    header {
+        padding: 20px 5%;
+    }
+    .produtos {
+        padding: 40px 5%;
+    }
+}
+/* Responsividade para celulares */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+    nav {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    nav a {
+        font-size: 14px;
+    }
+    .banner {
+        padding: 50px 15px;
+    }
+    .banner h2 {
+        font-size: 28px;
+    }
+    .banner p {
+        font-size: 15px;
+    }
+
+    produtos {
+        padding: 35px 20px;
+    }
+    .produtos h2 {
+        font-size: 25px;
+    }
+    .cards {
+        grid-template-columns: 1fr;
+    }
+    .card img {
+        height: 170px;
+    }
+    .contato {
+        padding: 35px 15px;
+    }
+    .contato form {
+        padding: 20px;
+    }
+}
